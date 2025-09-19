@@ -1,6 +1,8 @@
 'use client'
 import Link from "next/link";
 import './../../styles/util.css'
+import './../../styles/media.css'
+
 import './../../styles/landing.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css';

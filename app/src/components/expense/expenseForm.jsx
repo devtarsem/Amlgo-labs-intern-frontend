@@ -17,17 +17,16 @@ export default function ExpForm() {
 
     function addExp(el){
         el.preventDefault()
-        addExpense(amount.current.value, Category.current.value, date.current.value, pay.current.value, notes.current.value)
+        addExpense(amount.current.value, Category.current.value, pay.current.value, notes.current.value)
         amount.current.value = ''
         Category.current.value = 'Bills'
-        date.current.value = ''
         pay.current.value = 'Cash'
         notes.current.value = ''
 
     }   
 
     return (
-        <form className="formNewExp  flex flex-dir gap16">
+        <form className="formNewExp  grid grid-3-col gap16">
             <h2 className="addexphead">Add your expenses</h2>
             <div className="flex flex-dir gap8">
                 <label className="label">Amount</label>
@@ -41,10 +40,10 @@ export default function ExpForm() {
                     )}
                 </select>
             </div>
-            <div className="flex flex-dir gap8">
+            {/* <div className="flex flex-dir gap8">
                 <label className="label">Date</label>
                 <input ref={date} className="inp" placeholder="500" type="date"/>
-            </div>
+            </div> */}
             <div className="flex flex-dir gap8">
                 <label className="label">Payment method</label>
                 <select ref={pay} className="inp">
@@ -53,7 +52,7 @@ export default function ExpForm() {
                     )}
                 </select>
             </div>
-            <div className="flex flex-dir gap8">
+            <div className="notesbox flex flex-dir gap8">
                 <label className="label">Notes</label>
                 <textarea ref={notes} className="inp" placeholder="500" type="date"/>
             </div>

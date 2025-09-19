@@ -16,6 +16,8 @@
 }
 .navLnk,.authbtns{
     font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--color-mustdo);
     font-weight: 500 ;
 }
 .authbtns:last-child{
@@ -47,6 +49,7 @@
     font-size: 1.4rem;
     color: var(--color-white);
     border-radius: 5rem;
+    text-decoration: none;
 }
 .btnsHead__{
     background-color: var(--color-white);
@@ -55,7 +58,7 @@
 }
 
 
-.featurehead,.addHead,.headcta{
+.featurehead,.addHead,.headcta, .addHead_{
     font-size: 3.2rem;
     text-align: center;
     font-weight: 600;
@@ -119,6 +122,7 @@
 }
 .uiimg{
     border-radius: 1rem;
+    width: 100%;
 }
 
 li{

@@ -1,9 +1,17 @@
 .addexphead{
     font-size: 1.6rem;
     font-weight: 600;
+    grid-column: 1/4;
+}
+.addExpBtn{
+    grid-column: 1/4;
+
+}
+.notesbox{
+    grid-column: 1/4  ;
 }
 .formNewExp{
-    width: 60%;
+    /* width: 60%; */
     margin: 0 auto;
 }
 .tableView{

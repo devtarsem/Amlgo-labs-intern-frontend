@@ -64,7 +64,7 @@ export default function LineChart(props){
   };
 
     return(
-        <div style={{ width: "100%", height: "100%", margin: "auto" }}>
+        <div className="heigto" style={{ width: "100%", height: "100%" }}>
             <Line data={data} options={options} />
         </div>
     )

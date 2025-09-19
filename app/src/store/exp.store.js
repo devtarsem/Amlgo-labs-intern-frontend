@@ -21,7 +21,7 @@ const ExpStore = create(
             set({editPanel : false})
         }
         ,
-        addExpense : async(amount, category,date,pay,notes)=>{
+        addExpense : async(amount, category,pay,notes)=>{
             set({isLoading : true})
             axios({
                 method : 'POST',
@@ -29,7 +29,7 @@ const ExpStore = create(
                 data : {
                     amount,
                     category,
-                    date,
+                    
                     pay,
                     notes,
                     token : JSON.parse(localStorage.getItem('AuthExpNet')).user.token

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from './../../components/navbar'
 import './../../styles/util.css'
 import './../../styles/dashboard.css'
+import MiniNav from "@/components/expense/miniNavbar";
 
 
 export default function DashboardLayout({children}) {
@@ -10,6 +11,9 @@ export default function DashboardLayout({children}) {
     <div className="grid grid-12-col">
       <div className="sidenav pad16">
         <Navbar/>
+      </div>
+      <div className="MiniNavBar">
+        <MiniNav/>
       </div>
       <div className="childcompoents">
         <div className="topFixNav pad16 flex flex-1">

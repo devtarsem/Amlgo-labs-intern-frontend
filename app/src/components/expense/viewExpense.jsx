@@ -90,7 +90,7 @@ export default function ExpView() {
                     </select>
                     <button onClick={filterExps} className="filBtn standardbtn">Filter</button>
                     <button onClick={reset} className="filBtn standardbtn">Reset</button>
-                    <button onClick={monthfetch}>click</button>
+                    {/* <button onClick={monthfetch}>click</button> */}
                 </div>
             </div>
             <div className="tableView">
