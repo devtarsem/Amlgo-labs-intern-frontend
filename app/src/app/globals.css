@@ -1,0 +1,34 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap');
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-family: 'Montserrat';
+}
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+:root{
+  --color-first :  #f2f6fe;
+  --color-first-light :  #0065cb1e;
+
+  --color-second :  #4375f1;
+  --color-third :  #2f8f33;
+  --color-fourth :  #f79a06;
+  --color-five :  #DDA853;
+  --color-mustdo : #555555;
+  --color-Moderatelly : #b1a192;
+  --color-fun : #b6a190;
+  --color-delegate : #d5dade;
+  --color-fade : #d8d3cf;
+  --color-light-orange : #ffac4786;
+  --color-white : #fff;
+  --color-love : #C71585  ;
+
+}
+

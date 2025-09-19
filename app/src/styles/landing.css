@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap');
+
+.header{
+    height: 100vh;
+    background-color: var(--color-first);
+}
+.topNav{
+    width: 100%;
+    height: 10vh !important;
+}
+.head1{
+    font-family: 'Montserrat';
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-mustdo);
+}
+.navLnk,.authbtns{
+    font-size: 1.4rem;
+    font-weight: 500 ;
+}
+.authbtns:last-child{
+    background-color: var(--color-white);
+    padding: 0.5rem 2rem;
+    border-radius: 2rem;
+    box-shadow: inset 0 0 0 0.03rem var(--color-mustdo);
+}
+.content{
+    padding: 9.6rem;
+    height: 90vh;
+}
+.contHead{
+    width: 70%;
+
+    font-size: 4.8rem;
+    font-weight: 600;
+    text-align: center;
+}
+.des{
+    width: 70%;
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+.btnsHead{
+    padding: 1rem 2rem;
+    background-color: var(--color-second);
+    font-size: 1.4rem;
+    color: var(--color-white);
+    border-radius: 5rem;
+}
+.btnsHead__{
+    background-color: var(--color-white);
+    color: var(--color-mustdo);
+    box-shadow: inset 0 0 0 0.05rem var(--color-second);
+}
+
+
+.featurehead,.addHead,.headcta{
+    font-size: 3.2rem;
+    text-align: center;
+    font-weight: 600;
+}
+.headcta{
+    font-size: 2.4rem;
+}
+.desCta{
+    text-align: center;
+    line-height: 1.5;
+    font-size: 1.4rem;
+}
+.smallSVG{
+    width: 3.2rem;
+}
+.feahead,.feades{
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.feades{
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.3;
+}
+.fea:nth-child(1){
+    border-top: 0.01rem solid #0000001e;
+    border-left: 0.01rem solid #0000001e;
+
+}
+.fea:nth-child(2){
+    border-top: 0.01rem solid #0000001e;
+    border-left: 0.01rem solid #0000001e;
+
+}
+.fea:nth-child(3){
+    border-top: 0.01rem solid #0000001e;
+    border-left: 0.01rem solid #0000001e;
+    border-right: 0.01rem solid #0000001e;
+
+}
+.fea:nth-child(4){
+    border-top: 0.01rem solid #0000001e;
+    border-left: 0.01rem solid #0000001e;
+    border-bottom: 0.01rem solid #0000001e;
+
+}
+.fea:nth-child(5){
+    border-top: 0.01rem solid #0000001e;
+    border-left: 0.01rem solid #0000001e;
+    border-bottom: 0.01rem solid #0000001e;
+
+}
+.fea:nth-child(6){
+    border: 0.01rem solid #0000001e;
+
+}
+
+.add{
+    padding-top: 0rem !important;
+}
+.uiimg{
+    border-radius: 1rem;
+}
+
+li{
+    font-size: 1.2rem;
+    line-height: 1.4;
+    
+}
+li span{
+    font-weight: 600;
+}
+
+
+.cta{
+    background-color: var(--color-first);
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 9.6rem;
+}
+.footer{
+    background-color: var(--color-mustdo);
+}
+.foothead{
+    font-size: 2.4rem;
+    color: var(--color-white);
+    font-weight: 700;
+}
+
+.navigations{
+    /* background-color: aqua; */
+}
+ 

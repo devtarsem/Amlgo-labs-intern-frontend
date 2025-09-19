@@ -1,0 +1,70 @@
+.monthlySpebnd{
+    grid-column: 1/2;
+    height: 20vh;
+    background-color: #a78bfa67;
+    border: 0.2rem solid #a78bfa;
+    width: 100%;
+    border-radius: 1rem;
+
+}
+
+.TopCategory{
+    grid-column: 2/5;
+    height: 20vh;
+    background-color: #f472b667;
+    border: 0.2rem solid #f472b6;
+
+    width: 100%;
+    border-radius: 1rem;
+
+}
+.topPays{
+    grid-column: 5/8;
+    height: 20vh;
+    background-color: #22c55e67;
+    border: 0.2rem solid #22c55e;
+
+    width: 100%;
+    border-radius: 1rem;
+
+}
+
+.Pie{
+    grid-column: 1/4;
+    height: 55vh;
+    background-color: var(--color-first);
+    border-radius: 1rem;
+    width: 100%;
+}
+.line{
+    grid-column: 4/8;
+    height: 55vh;
+    background-color: var(--color-first);
+    border-radius: 1rem;
+    width: 100%;
+}
+
+.currExp,.anaHead{
+    text-align: center;
+    line-height: 1.5;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.amt{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.cata{
+    background-color: var(--color-white);
+    border-radius: 1rem;
+}
+.cataname{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.holdon{
+    grid-column: 1/4;
+}
+.wait{
+    font-size: 1.6rem;
+}

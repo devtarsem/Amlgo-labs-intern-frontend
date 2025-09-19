@@ -1,0 +1,37 @@
+.sidenav{
+    grid-column: 1/3;
+    height: 100vh;
+    width: 100%;
+    border-right: 0.05rem solid #5555553a;
+}
+.childcompoents{
+    grid-column: 3/13;
+    height: 100vh;
+    width: 100%;
+}
+.topFixNav{
+    height: 10vh;
+    border-bottom: 0.05rem solid #5555553a;
+
+}
+.innerComps{
+    height: 90vh;
+}
+.innerCompArea{
+    height: 100%;
+    border: 0.05rem solid #5555553a;
+    border-radius: 1rem;
+}
+.smallSVG{
+    width: 2.8rem;
+}
+.menybar{
+    margin-top: 1.6rem;
+}
+.linkNames{
+    font-size: 1.4rem;
+}
+
+.date{
+    font-size: 1.6rem;
+}

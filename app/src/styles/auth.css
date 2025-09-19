@@ -1,0 +1,44 @@
+.auth{
+    width: 100%;
+    height: 100%;
+}
+
+.headform{
+    text-align: center;
+    font-size: 2.4rem;
+    margin-top: 1.6rem;
+    font-weight: 600;
+}
+.formAuth{
+    width: 50%;
+    margin: 0 auto;
+}
+.alreadyLink{
+    text-align: start;
+    text-decoration: underline;
+    color: var(--color-second);
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 60px;
+  aspect-ratio: 2;
+  --_g: no-repeat radial-gradient(circle closest-side,#000 90%,#0000);
+  background: 
+    #b6a190 0%   50%,
+    #b6a190 50%  50%,
+    #b6a190 100% 50%;
+  background-size: calc(100%/3) 50%;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+    20%{background-position:0%   0%, 50%  50%,100%  50%}
+    40%{background-position:0% 100%, 50%   0%,100%  50%}
+    60%{background-position:0%  50%, 50% 100%,100%   0%}
+    80%{background-position:0%  50%, 50%  50%,100% 100%}
+}
+
+.waiting{
+    font-size: 1.4rem;
+    font-weight: 500;
+}

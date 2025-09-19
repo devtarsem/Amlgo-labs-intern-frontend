@@ -1,0 +1,60 @@
+.addexphead{
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.formNewExp{
+    width: 60%;
+    margin: 0 auto;
+}
+.tableView{
+    height: 55vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.table{
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+}
+.table thead{
+    background-color: var(--color-second);
+}
+
+.table thead tr th,.table tbody tr td{
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: var(--color-white);
+}
+
+.table tbody tr:nth-child(odd){
+    background-color: var(--color-first);
+}
+
+.table tbody tr td{
+    color: var(--color-mustdo) !important;
+    text-align: center;
+}
+.pages{
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.inp__small{
+    width: auto !important;
+}
+
+
+.edit{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #00000054;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+.editform{
+    width: 40%;
+    background-color: var(--color-white);
+    border-radius: 1rem;
+}
