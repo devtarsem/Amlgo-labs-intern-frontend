@@ -122,24 +122,25 @@ const ExpStore = create(
 
         ,
 
-        filterationOfExpenses : async(category,pays)=>{
-            if(category==''){
-                category = 'all'
+        filterationOfExpenses : async(cate,pays)=>{
+            console.log(cate, pays)
+            if(cate==''){
+                cate = 'all'
             }
             if(pays==''){
                 pays = 'all'
             }
 
+            console.log(pays)
             let exp = get().referenceExpenses.slice(get().meta.start, get().meta.end);
             exp = exp.filter(el=>{
-                if(el.category == category && el.payment_method==pays){
+                if(el.category.trim() == cate.trim() && el.payment_method.trim()==pays.trim()){
                     return el;
-                }else if(category=='all' &&  el.payment_method==pays){
+                }else if(cate.trim()=='all' &&  el.payment_method.trim()==pays.trim()){
                     return el;
-                }else if(pays=='all' && el.category == category ){
+                }else if(pays.trim()=='all' && el.category.trim() == cate.trim() ){
+                    console.log("passed")
                     return el
-                }else{
-                    return el;
                 }
             })
             set({expenses : exp})

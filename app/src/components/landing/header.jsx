@@ -23,9 +23,10 @@ export default function Header() {
                 <h1 className="head1">ExpenseNet</h1>
             </div>
             <div className="navigations flex flex- gap48">
-                <a href='#' className="navLnk">Features</a>
-                <a href='#' className="navLnk">Testimonies</a>
-                <a href='#' className="navLnk">Try our dashbaord</a>
+                {/* <a href='#features' className="navLnk">Features</a> */}
+                {/* <a href='#easy' className="navLnk">How easy it is</a> */}
+                <Link href='/dashboard/add-expense' className="navLnk">Try it now</Link>
+
             </div>
             {/* <div className="auths flex flex- gap48">
                 <Link href='/' className="authbtns" >Login</Link>
@@ -35,9 +36,9 @@ export default function Header() {
         </div>
         <div className="content flex flex-2 flex-dir gap16">
             <h2 data-aos="zoom-in" className="contHead">Our expense dashboard will makes you save more</h2>
-            <p data-aos="zoom-out" className="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque omnis officiis nemo minima quam magni ipsum praesentium esse reiciendis dolorum, impedit in quibusdam a amet blanditiis illo dolor maxime molestiae!. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, recusandae fugit itaque dolorum totam, optio maxime eaque velit ea consectetur nam nemo, ab delectus beatae accusamus a laboriosam dicta aliquid.</p>
+            <p data-aos="zoom-out" className="des">We will manage your expenses much better than you and gives a oppertunity to save lot more in you pocket, welcome to ExpenseNet, where you can manage your expenses like a hero, we have expense tracking ,smart suggestions and great analytics for you.</p>
             <div data-aos="flip-down" className="btns flex flex-2 gap16">
-                <Link href='/dashboard' className="btnsHead" >Try our dashboard!</Link>
+                <Link href='/dashboard/add-expense' className="btnsHead" >Try our dashboard!</Link>
                 <Link href='/dashboard' className="btnsHead btnsHead__"  >Explore more</Link>
             </div>
         </div>

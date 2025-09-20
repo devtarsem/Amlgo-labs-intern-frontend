@@ -17,7 +17,7 @@ export default function CTA() {
         <div data-aos="flip-down" className="cta pad48 flex flex-dir gap16 flex-2">
             <h2 className="headcta">Get started with ExpenseNet</h2>
             <p className="desCta">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, corporis sint? Delectus, alias illum? Atque fugit assumenda recusandae dolore nihil tenetur dolores in minus cumque vel? Ratione totam soluta quos?</p>
-            <Link href='/dashboard' className="standardbtn">Get started</Link>
+            <Link href='/dashboard/add-expense' className="standardbtn">Get started</Link>
         </div>
     )
 }
