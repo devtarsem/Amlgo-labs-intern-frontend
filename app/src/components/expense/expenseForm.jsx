@@ -5,6 +5,8 @@ import './../../styles/exp.css'
 import './../../styles/landing.css'
 import { useEffect, createRef } from "react";
 import ExpStore from "./../../store/exp.store";
+import errorSender from "@/utility/utility";
+
 
 export default function ExpForm() {
 
@@ -17,6 +19,23 @@ export default function ExpForm() {
 
     function addExp(el){
         el.preventDefault()
+
+        if(amount.current.value<=0){
+            errorSender("error", "Amount can not be 0 or -ve")
+            return
+        }
+
+        if(Category.current.value==''){
+            errorSender("error", "Invalid category")
+            return
+        }
+
+        if(pay.current.value==''){
+            errorSender("error", "Invalid payment method")
+            return
+        }
+
+
         addExpense(amount.current.value, Category.current.value, pay.current.value, notes.current.value)
         amount.current.value = ''
         Category.current.value = 'Bills'
@@ -35,6 +54,8 @@ export default function ExpForm() {
             <div className="flex flex-dir gap8">
                 <label className="label">Category</label>
                 <select ref={Category} className="inp">
+                    <option className="opt" value={''} key={''} >choose category</option>
+
                     {["Bills","Education","Entertainment","Food","Groceries","Health","Shopping","Transport","Travel", "Other"].map(el=>
                         <option className="opt" value={el} key={el} >{el}</option>
                     )}
@@ -47,6 +68,8 @@ export default function ExpForm() {
             <div className="flex flex-dir gap8">
                 <label className="label">Payment method</label>
                 <select ref={pay} className="inp">
+                    <option className="opt" value={''} key={''} >choose payment</option>
+
                     {["Cash","Credit Card","Debit Card","Net Banking","UPI"].map(el=>
                         <option className="opt" value={el} key={el} >{el}</option>
                     )}

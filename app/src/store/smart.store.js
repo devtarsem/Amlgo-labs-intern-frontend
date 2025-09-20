@@ -16,18 +16,25 @@ const smartStore = create(
         }
         ,
         fetchLastTenDays : async()=>{
-            axios({
-                method : "POST",
-                url : "/api/smart/lastTen",
-                data : {
-                    token : JSON.parse(localStorage.getItem('AuthExpNet')).user.token
-                }
-            }).then(res=>{
-                if(res.data.status=='success'){
-                    set({last10Days : res.data.last10Data})
-                    console.log(res.data.last10Data)
-                }
-            })
+            set({isLoading : true})
+            if(get().last10Days.length==0){
+                axios({
+                    method : "POST",
+                    url : "/api/smart/lastTen",
+                    data : {
+                        token : JSON.parse(localStorage.getItem('AuthExpNet')).user.token
+                    }
+                }).then(res=>{
+                    if(res.data.status=='success'){
+                        set({last10Days : res.data.last10Data, isLoading: false})
+                        console.log(res.data.last10Data)
+                    }
+                })
+
+            }else{
+                set({last10Days : get().last10Days, isLoading: false})
+
+            }
         }
         ,
 

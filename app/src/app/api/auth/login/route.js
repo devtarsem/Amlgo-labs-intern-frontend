@@ -24,7 +24,7 @@ export async function POST(req){
         
         return NextResponse.json(
         { status: "fail", message: "Invalid email or password" },
-        { status: 400 }
+        { status: 200 }
         );
       
     }else{
@@ -48,7 +48,7 @@ export async function POST(req){
         }else{
             return NextResponse.json(
             { status: "fail", message: "Invalid email or password" },
-            { status: 400 }
+            { status: 200 }
             ); 
         }
 

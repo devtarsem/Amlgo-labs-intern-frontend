@@ -1,5 +1,6 @@
 import {create} from 'zustand'
 import axios from 'axios'
+import errorSender from '@/utility/utility'
 
 const authStore = create(
     (set,get)=>({
@@ -26,20 +27,27 @@ const authStore = create(
         ,
         MakingUserSignUp : async(username,email, password)=>{
             set({isLoading : true})
-            try {
-                const res = await axios.post("/api/auth/signup", {
-                username,
-                email,
-                password,
-                });
+            
+            axios({
+                method : 'POST',
+                url : "/api/auth/signup",
+                data : {
+                    username,
+                    email,
+                    password
+                }
+            }).then(res=>{
+                if(res.data.status=='success'){
+                    set({AuthNeeded : false, isLoading: false})
+                    localStorage.setItem("AuthExpNet", JSON.stringify(res.data))
+                }else{
+                    set({isLoading: false})
+                    errorSender("error", res.data.message)
+                }
                 console.log(res.data);
-                localStorage.setItem("AuthExpNet", JSON.stringify(res.data))
-                set({AuthNeeded : false})
-            } catch (err) {
-                console.error("Signup error:", err.response?.data || err.message);
-            } finally {
-                set({ isLoading: false }); // ✅ always chalega
-            }
+            
+            })
+            
 
         }
 
@@ -47,19 +55,30 @@ const authStore = create(
 
         MakinguserLogin : async(email,password)=>{
             set({isLoading : true})
-            try {
                 const res = await axios.post("/api/auth/login", {
                 email,
                 password,
                 });
-                console.log(res.data);
-                localStorage.setItem("AuthExpNet", JSON.stringify(res.data))
-                set({AuthNeeded : false})
-            } catch (err) {
-                console.log("Signup error:", err.response?.data || err.message);
-            } finally {
-                set({ isLoading: false }); // ✅ always chalega
-            }
+            
+            axios({
+                method : 'POST',
+                url : '/api/auth/login',
+                data : {
+                    email,
+                    password
+                }
+            }).then(res=>{
+                if(res.data.status=='success'){
+                    localStorage.setItem("AuthExpNet", JSON.stringify(res.data))
+                    set({AuthNeeded : false})
+                    set({ isLoading: false });
+                }else{
+                    set({ isLoading: false }); 
+                    errorSender("error", res.data.message)
+
+                }
+            })
+            
         }
 
     })

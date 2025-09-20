@@ -5,7 +5,7 @@ import './../../styles/exp.css'
 import './../../styles/landing.css'
 import { useEffect, createRef, useState } from "react";
 import ExpStore from "./../../store/exp.store";
-
+import errorSender from "@/utility/utility";
 
 export default function EditExp(props) {
 
@@ -24,6 +24,10 @@ export default function EditExp(props) {
 
     function edit(el){
         el.preventDefault()
+        if(amt.current.value<=0){
+            errorSender("error", "Amount cannot be 0 or -ve")
+            return
+        }
         editExpense(amt.current.value, category.current.value, pay.current.value, notes.current.value, credentials._id)
     }
     

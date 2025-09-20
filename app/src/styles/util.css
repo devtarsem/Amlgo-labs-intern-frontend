@@ -19,6 +19,7 @@
     padding: 1rem;
     width: 100%;
     border: none;
+    border-radius: 1rem;
     font-family: 'Montserrat';
     background-color: var(--color-first);
   }
@@ -264,6 +265,7 @@
   border-radius: 2rem;
   cursor: pointer;
   text-decoration: none;
+  font-family: 'Montserrat';
 }
 
 .borderbtn{
@@ -273,13 +275,21 @@
   font-size: 1.4rem;
   border-radius: 2rem;
   cursor: pointer;
+  font-family: 'Montserrat';
 
 }
-
+.alreadyLink{
+  border: none;
+  background: none;
+  font-family: 'Montserrat';
+  cursor: pointer;
+}
 .borderbtn__{
   background-color: var(--color-mustdo);
   color: var(--color-white);
   font-size: 1.2rem;
+  font-family: 'Montserrat';
+
 }
 
 .main{

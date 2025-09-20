@@ -29,6 +29,12 @@
 }
 .menybar{
     margin-top: 1.6rem;
+    padding: 1rem;
+}
+.menuColored{
+    background-color: var(--color-first);
+    border-radius: 1rem;
+    box-shadow: 0 0 0.2rem var(--color-mustdo);
 }
 .linkNames{
     font-size: 1.4rem;
@@ -49,4 +55,8 @@
     background-color: #f7f7f7;
     border-top: 0.01rem solid var(--color-mustdo);
     display: none;
+}
+.coloredbar{
+    background-color: #0000004f;
+    border-radius: 1rem;
 }

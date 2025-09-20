@@ -9,7 +9,7 @@ import EditExp from "./editExpense";
 export default function ExpView() {
 
 
-    const {expenses, search,fetchingExpenses, fetchMonthlyReport,saveMonthlyReport,deleteExpense, editPanel , openEditPanel,resetFilters, filterationOfExpenses, isLoading,meta, nextPaginate, prevPaginate} = ExpStore()
+    const {expenses,monthlySpendLimit,showLimitPanel, closeLimitPanel,openLimitPanel, isLoadingLimit,search,fetchingExpenses, fetchMonthlyReport,saveMonthlyReport,deleteExpense, editPanel , openEditPanel,resetFilters, filterationOfExpenses, isLoading,meta, nextPaginate, prevPaginate} = ExpStore()
 
     useEffect(el=>{
         fetchingExpenses()
@@ -62,18 +62,41 @@ export default function ExpView() {
         fetchMonthlyReport()
     }
 
+    const limit = createRef()
+    function openLimitPanelFun(){
+        openLimitPanel()
+    }
+    function closeLimitPanelFun(){
+        closeLimitPanel()
+    }
+
+    function addLimit(){
+        monthlySpendLimit(limit.current.value)
+    }
+
     return(
         <div className="view flex flex-dir gap16 ">
-
+            <div className={showLimitPanel ? "spendlimitform spendLimitVisible pad16 flex flex-dir gap16" : "spendlimitform pad16 flex flex-dir gap16"}>
+                <input ref={limit} className="inp" placeholder="7899" type="number"/>
+                <button onClick={addLimit} className="standardbtn">{isLoadingLimit ? "Please wait..." :"Add limit"}</button>
+            </div>
             {editPanel &&
                 <EditExp creds={creds} />
             }
-            <div className="flex flex-1">
+            <div className="viewportcontrols flex flex-1">
                 <h2 className="addexphead">View Expenses</h2>
-                <button onClick={saveMonthRepo} className="standardbtn">Save month history</button>
+                <div className="flex flex-1 gap16">
+                    <button onClick={saveMonthRepo} className="standardbtn">{isLoading ? "please wait..." :"Save month history"}</button>
+                    {showLimitPanel ?
+                    <button onClick={closeLimitPanelFun} className="standardbtn vmontspendlitbtn">close</button>
+                    :
+                    <button onClick={openLimitPanelFun} className="standardbtn vmontspendlitbtn">Lock monthly spending limit</button>
+                    }
+                </div>
+
             </div>
             <div className="searchAndFilter flex flex-1 gap16">
-                <input onChange={searching} className="inp inp__small" placeholder="search" type="text"/>
+                <input onChange={searching} className="inp inp__small" placeholder="search by catagory" type="text"/>
                 <div className="filters flex flex-3 gap16">
                     <select onChange={chooseCatagory} className="inp inp__small">
                         <option className="opt" value=''>Choose catagory</option>

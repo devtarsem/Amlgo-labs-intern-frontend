@@ -19,7 +19,7 @@ ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 export default function AnalyticsComp() {
 
-    const {currentMonthSpending,pieChartData, currspending,isLoading, LineChartData,topSpendingCatagories, top3catagories, top3pays} = AnaStore()
+    const {currentMonthSpending,pieChartData, limit, currspending,isLoading, LineChartData,topSpendingCatagories, top3catagories, top3pays} = AnaStore()
     useEffect(el=>{
         currspending()
     }, [])
@@ -32,8 +32,11 @@ export default function AnalyticsComp() {
 
     return(
         <div className="analytics_grid grid grid-7-col gap16">
-            <div className="monthlySpebnd flex flex-2 flex-dir gap16">
-                <p className="currExp">Expense in <br/> September</p>
+            <div className={limit<currentMonthSpending ? "monthlySpebnd redalert flex flex-2 flex-dir gap16" : "monthlySpebnd flex flex-2 flex-dir gap16"}>
+                {limit<currentMonthSpending &&
+                    <p className="limitBreached">Limit breached</p>
+                }
+                <p className="currExp">Expense in <br/> {new Date().toLocaleString('default', { month: 'long' })}</p>
                 <p className="amt">₹{currentMonthSpending=='' ? 'Wait...' : currentMonthSpending}/-</p>
             </div>
             <div className="TopCategory flex flex-dir gap16 pad16">

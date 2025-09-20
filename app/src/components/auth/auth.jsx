@@ -3,8 +3,10 @@ import Image from "next/image";
 import { useEffect , createRef} from "react";
 import './../../styles/auth.css'
 import './../../styles/util.css'
+import './../../styles/auth.css'
 import axios from "axios";
 import authStore from "@/store/auth.store";
+import errorSender from "@/utility/utility";
 
 export default function Auth(){
 
@@ -21,6 +23,22 @@ export default function Auth(){
 
   function SignUpToAcc(el){ 
     el.preventDefault()
+    if(username.current.value.trim()==''){
+        errorSender('error', 'Please provide valid username')
+        return 
+    }
+    if(email.current.value.trim()==''){
+        errorSender('error', 'Please provide valid email address')
+        return 
+    }
+    if(password.current.value.trim()==''){
+        errorSender('error', 'Please provide valid password')
+        return 
+    }
+    if(password.current.value.length<8){
+        errorSender('error', 'Password must be atleast 8 character long')
+        return 
+    }
     MakingUserSignUp(username.current.value, email.current.value, password.current.value)
   }
 
@@ -35,6 +53,14 @@ export default function Auth(){
 
   function LoginToAcc(el){
     el.preventDefault()
+    if(emailLogin.current.value.trim()==''){
+        errorSender('error', 'Please provide valid email address')
+        return 
+    }
+    if(passwordLogin.current.value.trim()==''){
+        errorSender('error', 'Please provide valid password')
+        return 
+    }
     MakinguserLogin(emailLogin.current.value, passwordLogin.current.value)
   }
 
@@ -60,7 +86,7 @@ export default function Auth(){
                     <label className="label">Password </label>
                     <input ref={password} className="inp" placeholder="password" type="password"/>
                 </div>
-                <button className="alreadyLink">Already have an account?</button>
+                <button onClick={LoginAcc} className="alreadyLink">Already have an account?</button>
                 {isLoading ?
                 <div className="wait flex flex-2">
                     <p className="waiting">Please wait...</p>
@@ -83,7 +109,7 @@ export default function Auth(){
                         <label className="label">Password </label>
                         <input ref={passwordLogin} className="inp" placeholder="password" type="password"/>
                     </div>
-                    <button className="alreadyLink">Open new account?</button>
+                    <button onClick={SignUpAcc} className="alreadyLink">Open new account?</button>
                     {isLoading ?
                     <div className="wait flex flex-2">
                         <p className="waiting">Please wait...</p>

@@ -1,12 +1,24 @@
 import {create} from 'zustand'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import errorSender from '@/utility/utility'
 
 const ExpStore = create(
     (set,get)=>({
         isLoading : false,
+        isLoadingLimit : false,
+        showLimitPanel : false,
+        openLimitPanel: async()=>{
+            set({showLimitPanel : true})
+        }
+        ,
+        closeLimitPanel: async()=>{
+            set({showLimitPanel : false})
+        }
+        ,
         referenceExpenses : [],
         expenses : [],
+        spendLimit : 0,
         meta : {
             start : 1,
             end : 6
@@ -187,12 +199,10 @@ const ExpStore = create(
         search : async(str)=>{
             let exp = get().referenceExpenses.slice(get().meta.start, get().meta.end)
             let searchArr = []
-            exp.forEach(el=>{
-                searchArr.push(el.amount+el.category.toLowerCase()+el.payment_method.toLowerCase()+el.notes.toLowerCase()+el.Date)
-            })
+            
             console.log(searchArr)
             exp = exp.filter(el=>{
-                if(searchArr.includes(str.toLowerCase())){
+                if(el.category.toLowerCase().includes(str.toLowerCase())){
                     return el
                 }
             })
@@ -221,13 +231,16 @@ const ExpStore = create(
                 month : `${month}-${new Date().getFullYear()}`,
                 total_spend : spending
             }
-
+            set({isLoading : true})
             axios({
                 method : "POST",
-                url : "http://127.0.0.1:5000/monthly-report",
+                url : "https://amlgo-labs-flask-api.onrender.com/monthly-report",
                 data : obj
             }).then(res=>{
                 console.log(res)
+                set({isLoading : false})
+                errorSender("success", "Month report till now saved")
+
             })
         }
         ,
@@ -235,8 +248,31 @@ const ExpStore = create(
         fetchMonthlyReport : async()=>{
             axios({
                 method : 'POST',
-                url : "http://127.0.0.1:5000/monthly-report/history",
+                url : "http://127.0.0.1:5000/history",
                 data : '68ccee39cf3d8bd5d272a46f'
+            }).then(res=>{
+                console.log(res)
+            })
+        }
+
+        ,
+
+        monthlySpendLimit: async(limit)=>{
+            set({isLoadingLimit : true})
+            axios({
+                method : 'POST',
+                url : "/api/expense/limit",
+                data : {
+                    token : JSON.parse(localStorage.getItem('AuthExpNet')).user.token,
+                    limit : limit
+                }
+            }).then(res=>{
+                if(res.data.status=='success'){
+                    console.log(res)
+                    localStorage.setItem("SpendLimit", res.data.limit)
+                    set({spendLimit : res.data.limit, isLoadingLimit : false, showLimitPanel: false})
+                    // errorSender('success', "Spending limit added")
+                }
             })
         }
 

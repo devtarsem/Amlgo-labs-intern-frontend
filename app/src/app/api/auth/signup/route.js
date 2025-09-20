@@ -26,7 +26,7 @@ export async function POST(req){
     if (existingUser) {
       return NextResponse.json(
         { status: "fail", message: "User already exists with this email" },
-        { status: 400 }
+        { status: 200 }
       );
     }
     // crypting user password

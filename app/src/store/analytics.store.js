@@ -1,4 +1,4 @@
-import {create} from 'zustand'
+ import {create} from 'zustand'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
@@ -10,6 +10,7 @@ const AnaStore = create(
         top3pays : [],
         pieChartData : [],
         LineChartData : [],
+        limit :0,
 
         currspending : async()=>{
             set({isLoading : true})
@@ -22,7 +23,7 @@ const AnaStore = create(
                 }
             }).then(res=>{
                 if(res.data.status=='success'){
-                    console.log()
+                    set({limit: JSON.parse(localStorage.getItem('SpendLimit'))})
                     set({currentMonthSpending : res.data.expense, isLoading:false})
                 }
             })

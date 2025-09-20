@@ -8,6 +8,12 @@
 
 }
 
+.redalert{
+    background-color: rgba(255, 0, 0, 0.667);
+    border: 0.2rem solid red;
+
+}
+
 .TopCategory{
     grid-column: 2/5;
     height: 20vh;
@@ -67,4 +73,21 @@
 }
 .wait{
     font-size: 1.6rem;
+}
+.monthlySpebnd{
+    position: relative;
+    overflow: hidden;
+}
+.limitBreached{
+    position: absolute;
+    transform: rotate(-45deg);
+    padding: 0 2rem ;
+    top: 20%;
+    left: -25%;
+    color: red;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: var(--color-white);
+    width: 100%;
+    border-radius: 1rem;
 }
